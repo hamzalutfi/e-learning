@@ -1,21 +1,24 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { Search, ShoppingCart, Menu, X, Bell } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Search, ShoppingCart, Menu, X, Bell } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <header className="bg-white/95 backdrop-blur-md shadow-elegant border-b border-gray-200/50 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 space-x-reverse group">
+          <Link
+            href="/"
+            className="flex items-center space-x-2 space-x-reverse group"
+          >
             <div className="relative">
               <Image
                 src="/logo.jpg"
@@ -27,7 +30,7 @@ export default function Header() {
               <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-green-400/20 to-green-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
             <span className="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-              صادق للتعلم
+              صديق للتعلم
             </span>
           </Link>
 
@@ -100,7 +103,11 @@ export default function Header() {
             className="md:hidden p-2 text-gray-700 hover:text-green-600 transition-colors duration-300"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </div>
 
@@ -145,7 +152,9 @@ export default function Header() {
                   </Button>
                 </Link>
                 <Link href="/signup">
-                  <Button className="w-full gradient-primary text-white rounded-xl py-3 shadow-md">إنشاء حساب</Button>
+                  <Button className="w-full gradient-primary text-white rounded-xl py-3 shadow-md">
+                    إنشاء حساب
+                  </Button>
                 </Link>
               </div>
             </div>
@@ -153,5 +162,5 @@ export default function Header() {
         )}
       </div>
     </header>
-  )
+  );
 }

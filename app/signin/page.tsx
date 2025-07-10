@@ -29,7 +29,7 @@ export default function SignInPage() {
         <div className="text-center">
           <Link href="/" className="flex items-center justify-center space-x-2 space-x-reverse mb-6">
             <Image src="/logo.jpg" alt="Sadiq E-Learning" width={50} height={50} className="rounded-lg" />
-            <span className="text-2xl font-bold text-gray-900">صادق للتعلم</span>
+            <span className="text-2xl font-bold text-gray-900">صديق للتعلم</span>
           </Link>
           <h2 className="text-3xl font-bold text-gray-900 mb-2">مرحباً بعودتك</h2>
           <p className="text-gray-600">سجل دخولك للوصول إلى دوراتك</p>
