@@ -1,18 +1,18 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Star, Users } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import Image from "next/image";
+import Link from "next/link";
+import { Star, Users } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 interface CourseCardProps {
-  id: string
-  title: string
-  instructor: string
-  rating: number
-  students: number
-  price: number
-  originalPrice?: number
-  image: string
-  level: string
+  id: string;
+  title: string;
+  instructor: string;
+  rating: number;
+  students: number;
+  price: number;
+  originalPrice?: number;
+  image: string;
+  level: string;
 }
 
 export default function CourseCard({
@@ -35,7 +35,7 @@ export default function CourseCard({
             alt={title}
             width={300}
             height={200}
-            className="w-full h-48 object-cover"
+            className="w-full h-48 object-contain"
           />
           <div className="absolute top-2 right-2 bg-green-600 text-white px-2 py-1 rounded text-xs font-medium">
             {level}
@@ -55,24 +55,35 @@ export default function CourseCard({
         <div className="flex items-center mb-2">
           <div className="flex items-center">
             <Star className="w-4 h-4 text-yellow-400 fill-current" />
-            <span className="text-sm font-medium text-gray-700 mr-1">{rating}</span>
+            <span className="text-sm font-medium text-gray-700 mr-1">
+              {rating}
+            </span>
           </div>
           <div className="flex items-center mr-4">
             <Users className="w-4 h-4 text-gray-400" />
-            <span className="text-sm text-gray-600 mr-1">{students.toLocaleString()}</span>
+            <span className="text-sm text-gray-600 mr-1">
+              {students.toLocaleString()}
+            </span>
           </div>
         </div>
 
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <span className="text-lg font-bold text-gray-900">${price}</span>
-            {originalPrice && <span className="text-sm text-gray-500 line-through mr-2">${originalPrice}</span>}
+            {originalPrice && (
+              <span className="text-sm text-gray-500 line-through mr-2">
+                ${originalPrice}
+              </span>
+            )}
           </div>
-          <Button size="sm" className="bg-green-600 hover:bg-green-700 text-white">
+          <Button
+            size="sm"
+            className="bg-green-600 hover:bg-green-700 text-white"
+          >
             أضف للعربة
           </Button>
         </div>
       </div>
     </div>
-  )
+  );
 }

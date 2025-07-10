@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Header from "@/components/Header"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Input } from "@/components/ui/input"
-import { Separator } from "@/components/ui/separator"
+import { useState } from "react";
+import Header from "@/components/Header";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
 import {
   Trash2,
   Heart,
@@ -22,10 +22,10 @@ import {
   Tag,
   Plus,
   Minus,
-} from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
-import { Label } from "@/components/ui/label"
+} from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { Label } from "@/components/ui/label";
 
 const cartItems = [
   {
@@ -73,7 +73,7 @@ const cartItems = [
     lastUpdated: "ديسمبر 2024",
     isWishlisted: false,
   },
-]
+];
 
 const recommendedCourses = [
   {
@@ -96,34 +96,42 @@ const recommendedCourses = [
     rating: 4.4,
     students: 650,
   },
-]
+];
 
 export default function CartPage() {
-  const [items, setItems] = useState(cartItems)
-  const [couponCode, setCouponCode] = useState("")
-  const [appliedCoupon, setAppliedCoupon] = useState(null)
-  const [isProcessing, setIsProcessing] = useState(false)
+  const [items, setItems] = useState(cartItems);
+  const [couponCode, setCouponCode] = useState("");
+  const [appliedCoupon, setAppliedCoupon] = useState(null);
+  const [isProcessing, setIsProcessing] = useState(false);
 
   const removeItem = (id: string) => {
-    setItems(items.filter((item) => item.id !== id))
-  }
+    setItems(items.filter((item) => item.id !== id));
+  };
 
   const toggleWishlist = (id: string) => {
-    setItems(items.map((item) => (item.id === id ? { ...item, isWishlisted: !item.isWishlisted } : item)))
-  }
+    setItems(
+      items.map((item) =>
+        item.id === id ? { ...item, isWishlisted: !item.isWishlisted } : item
+      )
+    );
+  };
 
   const applyCoupon = () => {
     if (couponCode.toLowerCase() === "save20") {
-      setAppliedCoupon({ code: "SAVE20", discount: 20, amount: total * 0.2 })
+      setAppliedCoupon({ code: "SAVE20", discount: 20, amount: total * 0.2 });
     } else if (couponCode.toLowerCase() === "welcome10") {
-      setAppliedCoupon({ code: "WELCOME10", discount: 10, amount: total * 0.1 })
+      setAppliedCoupon({
+        code: "WELCOME10",
+        discount: 10,
+        amount: total * 0.1,
+      });
     }
-    setCouponCode("")
-  }
+    setCouponCode("");
+  };
 
   const removeCoupon = () => {
-    setAppliedCoupon(null)
-  }
+    setAppliedCoupon(null);
+  };
 
   const addToCart = (course) => {
     const newItem = {
@@ -133,25 +141,28 @@ export default function CartPage() {
       level: "متوسط",
       lastUpdated: "ديسمبر 2024",
       isWishlisted: false,
-    }
-    setItems([...items, newItem])
-  }
+    };
+    setItems([...items, newItem]);
+  };
 
   const handleCheckout = () => {
-    setIsProcessing(true)
+    setIsProcessing(true);
     // Simulate processing
     setTimeout(() => {
-      setIsProcessing(false)
+      setIsProcessing(false);
       // Redirect to payment or show success
-    }, 2000)
-  }
+    }, 2000);
+  };
 
-  const subtotal = items.reduce((sum, item) => sum + item.price, 0)
-  const originalTotal = items.reduce((sum, item) => sum + (item.originalPrice || item.price), 0)
-  const savings = originalTotal - subtotal
-  const couponDiscount = appliedCoupon ? appliedCoupon.amount : 0
-  const total = subtotal - couponDiscount
-  const finalSavings = savings + couponDiscount
+  const subtotal = items.reduce((sum, item) => sum + item.price, 0);
+  const originalTotal = items.reduce(
+    (sum, item) => sum + (item.originalPrice || item.price),
+    0
+  );
+  const savings = originalTotal - subtotal;
+  const couponDiscount = appliedCoupon ? appliedCoupon.amount : 0;
+  const total = subtotal - couponDiscount;
+  const finalSavings = savings + couponDiscount;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
@@ -171,9 +182,12 @@ export default function CartPage() {
             <div className="w-32 h-32 bg-gradient-to-r from-gray-100 to-gray-200 rounded-full flex items-center justify-center mx-auto mb-6">
               <ShoppingCart className="w-16 h-16 text-gray-400" />
             </div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">عربة التسوق فارغة</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              عربة التسوق فارغة
+            </h2>
             <p className="text-xl text-gray-600 mb-8 max-w-md mx-auto">
-              لم تقم بإضافة أي دورات بعد. استكشف مكتبتنا الواسعة من الدورات التعليمية
+              لم تقم بإضافة أي دورات بعد. استكشف مكتبتنا الواسعة من الدورات
+              التعليمية
             </p>
             <Link href="/courses">
               <Button className="gradient-primary text-white px-8 py-4 text-lg font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
@@ -195,7 +209,10 @@ export default function CartPage() {
                 <CardContent className="p-0">
                   <div className="divide-y divide-gray-100">
                     {items.map((item, index) => (
-                      <div key={item.id} className="p-6 hover:bg-gray-50 transition-all duration-300 group">
+                      <div
+                        key={item.id}
+                        className="p-6 hover:bg-gray-50 transition-all duration-300 group"
+                      >
                         <div className="flex gap-6">
                           <div className="relative flex-shrink-0">
                             <Image
@@ -203,7 +220,7 @@ export default function CartPage() {
                               alt={item.title}
                               width={180}
                               height={120}
-                              className="rounded-xl object-cover shadow-md group-hover:shadow-lg transition-all duration-300"
+                              className="rounded-xl object-contain shadow-md group-hover:shadow-lg transition-all duration-300"
                             />
                             <Badge className="absolute top-2 right-2 bg-gradient-to-r from-green-500 to-green-600 text-white px-2 py-1 text-xs rounded-full">
                               {item.level}
@@ -227,7 +244,9 @@ export default function CartPage() {
                               </Button>
                             </div>
 
-                            <p className="text-gray-600 mb-3 font-medium">بواسطة {item.instructor}</p>
+                            <p className="text-gray-600 mb-3 font-medium">
+                              بواسطة {item.instructor}
+                            </p>
 
                             <div className="flex items-center gap-6 mb-4 text-sm text-gray-500">
                               <div className="flex items-center gap-2">
@@ -248,13 +267,22 @@ export default function CartPage() {
                             <div className="flex items-center justify-between">
                               <div className="flex items-center gap-4">
                                 <div className="flex items-center gap-3">
-                                  <span className="text-2xl font-bold text-gray-900">${item.price}</span>
+                                  <span className="text-2xl font-bold text-gray-900">
+                                    ${item.price}
+                                  </span>
                                   {item.originalPrice && (
-                                    <span className="text-lg text-gray-500 line-through">${item.originalPrice}</span>
+                                    <span className="text-lg text-gray-500 line-through">
+                                      ${item.originalPrice}
+                                    </span>
                                   )}
                                   {item.originalPrice && (
                                     <Badge className="bg-gradient-to-r from-red-500 to-red-600 text-white px-2 py-1 rounded-full text-xs">
-                                      {Math.round(((item.originalPrice - item.price) / item.originalPrice) * 100)}% خصم
+                                      {Math.round(
+                                        ((item.originalPrice - item.price) /
+                                          item.originalPrice) *
+                                          100
+                                      )}
+                                      % خصم
                                     </Badge>
                                   )}
                                 </div>
@@ -271,7 +299,11 @@ export default function CartPage() {
                                       : "text-gray-400 hover:text-red-500"
                                   }`}
                                 >
-                                  <Heart className={`w-5 h-5 ${item.isWishlisted ? "fill-current" : ""}`} />
+                                  <Heart
+                                    className={`w-5 h-5 ${
+                                      item.isWishlisted ? "fill-current" : ""
+                                    }`}
+                                  />
                                 </Button>
                                 <Button
                                   variant="ghost"
@@ -293,7 +325,9 @@ export default function CartPage() {
               {/* Recommended Courses */}
               <Card className="shadow-elegant border-0 bg-white/90 backdrop-blur-sm">
                 <CardHeader className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-t-2xl">
-                  <CardTitle className="text-xl text-gradient">دورات قد تعجبك</CardTitle>
+                  <CardTitle className="text-xl text-gradient">
+                    دورات قد تعجبك
+                  </CardTitle>
                 </CardHeader>
                 <CardContent className="p-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -307,22 +341,32 @@ export default function CartPage() {
                           alt={course.title}
                           width={120}
                           height={80}
-                          className="rounded-lg object-cover shadow-md group-hover:scale-105 transition-transform duration-300"
+                          className="rounded-lg object-contain shadow-md group-hover:scale-105 transition-transform duration-300"
                         />
                         <div className="flex-1">
                           <h4 className="font-semibold text-lg mb-2 group-hover:text-green-600 transition-colors duration-300 line-clamp-2">
                             {course.title}
                           </h4>
-                          <p className="text-gray-600 text-sm mb-2">{course.instructor}</p>
+                          <p className="text-gray-600 text-sm mb-2">
+                            {course.instructor}
+                          </p>
                           <div className="flex items-center gap-2 mb-3">
                             <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                            <span className="text-sm font-medium">{course.rating}</span>
-                            <span className="text-sm text-gray-500">({course.students})</span>
+                            <span className="text-sm font-medium">
+                              {course.rating}
+                            </span>
+                            <span className="text-sm text-gray-500">
+                              ({course.students})
+                            </span>
                           </div>
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-2">
-                              <span className="font-bold text-gray-900">${course.price}</span>
-                              <span className="text-sm text-gray-500 line-through">${course.originalPrice}</span>
+                              <span className="font-bold text-gray-900">
+                                ${course.price}
+                              </span>
+                              <span className="text-sm text-gray-500 line-through">
+                                ${course.originalPrice}
+                              </span>
                             </div>
                             <Button
                               size="sm"
@@ -345,7 +389,9 @@ export default function CartPage() {
             <div className="xl:col-span-1">
               <Card className="shadow-elegant border-0 bg-white/95 backdrop-blur-md sticky top-24">
                 <CardHeader className="bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-t-2xl">
-                  <CardTitle className="text-2xl font-bold text-center">ملخص الطلب</CardTitle>
+                  <CardTitle className="text-2xl font-bold text-center">
+                    ملخص الطلب
+                  </CardTitle>
                 </CardHeader>
                 <CardContent className="p-6">
                   <div className="space-y-4 mb-6">
@@ -374,7 +420,9 @@ export default function CartPage() {
                             <Minus className="w-3 h-3" />
                           </Button>
                         </div>
-                        <span className="font-semibold">-${appliedCoupon.amount.toFixed(2)}</span>
+                        <span className="font-semibold">
+                          -${appliedCoupon.amount.toFixed(2)}
+                        </span>
                       </div>
                     )}
 
@@ -382,19 +430,25 @@ export default function CartPage() {
 
                     <div className="flex justify-between text-xl font-bold text-gray-900">
                       <span>المجموع النهائي:</span>
-                      <span className="text-green-600">${total.toFixed(2)}</span>
+                      <span className="text-green-600">
+                        ${total.toFixed(2)}
+                      </span>
                     </div>
 
                     {finalSavings > 0 && (
                       <div className="text-center p-3 rounded-xl bg-gradient-to-r from-green-50 to-green-100">
-                        <p className="text-green-700 font-semibold">🎉 وفرت ${finalSavings.toFixed(2)}!</p>
+                        <p className="text-green-700 font-semibold">
+                          🎉 وفرت ${finalSavings.toFixed(2)}!
+                        </p>
                       </div>
                     )}
                   </div>
 
                   {/* Coupon Code */}
                   <div className="mb-6">
-                    <Label className="block text-sm font-semibold text-gray-700 mb-2">كود الخصم</Label>
+                    <Label className="block text-sm font-semibold text-gray-700 mb-2">
+                      كود الخصم
+                    </Label>
                     <div className="flex gap-2">
                       <Input
                         type="text"
@@ -412,7 +466,9 @@ export default function CartPage() {
                         <Tag className="w-4 h-4" />
                       </Button>
                     </div>
-                    <p className="text-xs text-gray-500 mt-1">جرب: SAVE20 أو WELCOME10</p>
+                    <p className="text-xs text-gray-500 mt-1">
+                      جرب: SAVE20 أو WELCOME10
+                    </p>
                   </div>
 
                   <div className="space-y-3 mb-6">
@@ -438,7 +494,9 @@ export default function CartPage() {
                   <div className="space-y-3 text-center">
                     <div className="flex items-center justify-center gap-2 text-green-600 font-medium">
                       <Shield className="w-4 h-4" />
-                      <span className="text-sm">ضمان استرداد الأموال لمدة 30 يوماً</span>
+                      <span className="text-sm">
+                        ضمان استرداد الأموال لمدة 30 يوماً
+                      </span>
                     </div>
                     <div className="flex items-center justify-center gap-2 text-blue-600 font-medium">
                       <Infinity className="w-4 h-4" />
@@ -453,7 +511,10 @@ export default function CartPage() {
                   <Separator className="my-6" />
 
                   <div className="text-center">
-                    <Link href="/courses" className="text-green-600 hover:text-green-500 font-medium text-sm">
+                    <Link
+                      href="/courses"
+                      className="text-green-600 hover:text-green-500 font-medium text-sm"
+                    >
                       متابعة التسوق
                     </Link>
                   </div>
@@ -464,5 +525,5 @@ export default function CartPage() {
         )}
       </div>
     </div>
-  )
+  );
 }

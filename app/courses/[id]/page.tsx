@@ -687,7 +687,7 @@ export default function CourseDetailsPage({ params }: { params: { id: string } }
                           alt="Course"
                           width={80}
                           height={60}
-                          className="rounded-lg object-cover shadow-md group-hover:scale-105 transition-transform duration-300"
+                          className="rounded-lg object-contain shadow-md group-hover:scale-105 transition-transform duration-300"
                         />
                         <div className="flex-1">
                           <h4 className="font-semibold text-sm mb-1 group-hover:text-green-600 transition-colors duration-300">

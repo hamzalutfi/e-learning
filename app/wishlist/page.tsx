@@ -293,7 +293,7 @@ export default function WishlistPage() {
                   alt={course.title}
                   width={200}
                   height={120}
-                  className="rounded-xl object-cover shadow-md"
+                  className="rounded-xl object-contain shadow-md"
                 />
                 {course.isOnSale && (
                   <Badge className="absolute top-2 right-2 bg-gradient-to-r from-red-500 to-red-600 text-white px-2 py-1 text-xs rounded-full">
