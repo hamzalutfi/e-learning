@@ -4,52 +4,48 @@ import { Button } from "@/components/ui/button";
 import { Play, BookOpen, Users, Award, TrendingUp } from "lucide-react";
 import Link from "next/link";
 
-const featuredCourses = [
+
+const courses = [
   {
     id: "1",
-    title: "تطوير المواقع الإلكترونية باستخدام React و Next.js",
+
+    title: "   بناء السيره الذاتية الاحترافية",
     instructor: "أحمد محمد",
+
     rating: 4.8,
+
     students: 1250,
+
     price: 89,
+
     originalPrice: 149,
-    image: "/logo.jpg",
+
+    image: "Image_fx (3).jpg",
+
     level: "متوسط",
   },
+
   {
     id: "2",
-    title: "تصميم واجهات المستخدم UX/UI من الصفر",
+
+    title: " اساسيات استخدام لينكد ان",
+
     instructor: "فاطمة أحمد",
+
     rating: 4.9,
+
     students: 890,
+
     price: 79,
+
     originalPrice: 129,
-    image: "/logo.jpg",
-    level: "مبتدئ",
-  },
-  {
-    id: "3",
-    title: "التسويق الرقمي ووسائل التواصل الاجتماعي",
-    instructor: "خالد العلي",
-    rating: 4.7,
-    students: 2100,
-    price: 69,
-    originalPrice: 99,
-    image: "/logo.jpg",
-    level: "مبتدئ",
-  },
-  {
-    id: "4",
-    title: "تعلم اللغة الإنجليزية للمبتدئين",
-    instructor: "سارة محمود",
-    rating: 4.6,
-    students: 3200,
-    price: 49,
-    originalPrice: 79,
-    image: "/logo.jpg",
+
+    image: "Image_fx (4).jpg",
+
     level: "مبتدئ",
   },
 ];
+
 
 const categories = [
   { name: "البرمجة والتطوير", icon: BookOpen, count: 1200 },
@@ -137,7 +133,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {featuredCourses.map((course) => (
+            {courses.map((course) => (
               <CourseCard key={course.id} {...course} />
             ))}
           </div>

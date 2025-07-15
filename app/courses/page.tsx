@@ -18,69 +18,81 @@ import { Search, Filter } from "lucide-react";
 const courses = [
   {
     id: "1",
-    title: "كيفية كتابة سيرة ذاتية احترافية (CV)",
+
+    title: "   بناء السيره الذاتية الاحترافية",
     instructor: "أحمد محمد",
-    rating: 4.9,
-    students: 2150,
-    price: 49,
-    originalPrice: 79,
-    image: "/logo.jpg",
-    level: "مبتدئ",
+
+    rating: 4.8,
+
+    students: 1250,
+
+    price: 89,
+
+    originalPrice: 149,
+
+    image: "Image_fx (3).jpg",
+
+    level: "متوسط",
   },
+
   {
     id: "2",
-    title: "بناء بورتفوليو مميز يعكس مهاراتك",
+
+    title: " اساسيات استخدام لينكد ان",
+
     instructor: "فاطمة أحمد",
-    rating: 4.8,
-    students: 1800,
-    price: 59,
-    originalPrice: 89,
-    image: "/logo.jpg",
-    level: "متوسط",
-  },
-  {
-    id: "3",
-    title: "الاستعداد للمقابلات الوظيفية: الأسئلة والإجابات النموذجية",
-    instructor: "خالد العلي",
-    rating: 4.7,
-    students: 2400,
-    price: 69,
-    originalPrice: 99,
-    image: "/logo.jpg",
-    level: "متوسط",
-  },
-  {
-    id: "4",
-    title: "استخدام لينكدإن بشكل احترافي للتوظيف",
-    instructor: "سارة محمود",
-    rating: 4.8,
-    students: 3100,
-    price: 39,
-    originalPrice: 79,
-    image: "/logo.jpg",
+
+    rating: 4.9,
+
+    students: 890,
+
+    price: 79,
+
+    originalPrice: 129,
+
+    image: "Image_fx (4).jpg",
+
     level: "مبتدئ",
   },
+
   {
-    id: "5",
-    title: "كيف تسوّق لنفسك كمستقل (Freelancer Branding)",
-    instructor: "محمد الأحمد",
-    rating: 4.6,
-    students: 950,
-    price: 79,
-    originalPrice: 129,
-    image: "/logo.jpg",
-    level: "متوسط",
+    id: "3",
+
+    title: "دورة بناء البورت فوليو الشخصي",
+
+    instructor: "خالد العلي",
+
+    rating: 4.7,
+
+    students: 2100,
+
+    price: 69,
+
+    originalPrice: 99,
+
+    image: "Image_fx (5).jpg",
+
+    level: "مبتدئ",
   },
+
   {
-    id: "6",
-    title: "مهارات التواصل والذكاء العاطفي في بيئة العمل",
-    instructor: "نور الدين",
-    rating: 4.5,
-    students: 780,
-    price: 59,
-    originalPrice: 89,
-    image: "/logo.jpg",
-    level: "متقدم",
+    id: "4",
+
+    title: "مهارات التحضير لمقابلات العمل",
+
+    instructor: "سارة محمود",
+
+    rating: 4.6,
+
+    students: 3200,
+
+    price: 49,
+
+    originalPrice: 79,
+
+    image: "Image_fx (6).jpg",
+
+    level: "مبتدئ",
   },
 ];
 
